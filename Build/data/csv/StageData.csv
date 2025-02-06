@@ -1,2 +1,4 @@
-ステージIdx,ステージID,通常当たり判定ID,敵当たり判定ID,フェーズ数,初期罠ポイント,初期クリスタルHP,目標クリアタイム,ポーションがドロップする最大数
-0,stage1,M_STAGECOLLISION1,M_E_STAGECOLLISION1,3,1800,20,14400,3
+ステージIdx,ステージID,通常当たり判定ID,敵当たり判定ID,フェーズ数,初期罠ポイント,初期クリスタルHP,目標クリアタイム,ポーションがドロップする最大数,ステージ名,ミニマップID
+0,stage1,M_STAGECOLLISION1,M_E_STAGECOLLISION1,3,1800,20,14400,3,ステージ1,I_STAGE1MINIMAP
+1,stage2,M_STAGECOLLISION2,M_E_STAGECOLLISION2,3,1800,20,14400,3,ステージ2,I_STAGE2MINIMAP
+2,stage3,M_STAGECOLLISION3,M_E_STAGECOLLISION3,3,1800,20,18000,3,ステージ3,I_STAGE3MINIMAP
