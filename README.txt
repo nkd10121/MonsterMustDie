@@ -1,5 +1,3 @@
-
-
 【タイトル】
 MonsterMustDie!
 
