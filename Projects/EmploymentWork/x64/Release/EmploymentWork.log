@@ -1,0 +1,140 @@
+﻿  compilation object save succeeded; see C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\data\shader\PixelShader.pso
+  compilation object save succeeded; see C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\data\shader\VertexShader.vso
+  FontManager.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\FontManager.cpp(154,16): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\FontManager.cpp(155,17): warning C4244: '初期化中': 'float' から 'int' への変換です。データが失われる可能性があります。
+  EnemyBig.cpp
+  EnemyFast.cpp
+  EnemyStateDamaged.cpp
+  CutterTrap.cpp
+  IronImpactTrap.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Object\Trap\IronImpactTrap.cpp(68,44): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+  IronSnareTrap.cpp
+  MiniMap.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Ui\MiniMap.cpp(83,60): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Ui\MiniMap.cpp(83,35): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Ui\MiniMap.cpp(84,58): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Ui\MiniMap.cpp(84,34): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Ui\MiniMap.cpp(90,35): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Ui\MiniMap.cpp(90,23): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  FlameTrap.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Object\Trap\FlameTrap.cpp(57,38): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Object\Trap\FlameTrap.cpp(68,44): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Object\Trap\FlameTrap.cpp(130,35): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Object\Trap\FlameTrap.cpp(203,32): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  Setting.cpp
+  DrawUI.cpp
+  ArrowWallTrap.cpp
+  SoundManager.cpp
+  EffectManager.cpp
+  EnemyStateIdle.cpp
+  EnemyStateWalk.cpp
+  EnemyStateDeath.cpp
+  EnemyStateAttack.cpp
+  GameManager.cpp
+  EnemyManager.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\EnemyManager.cpp(101,22): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\EnemyManager.cpp(105,55): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\EnemyManager.cpp(341,104): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\EnemyManager.cpp(531,48): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\EnemyManager.cpp(574,48): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\EnemyManager.cpp(617,48): warning C4244: '=': 'int' から 'float' への変換です。データが失われる可能性があります。
+  コンパイル中...
+  LocalPos.cpp
+  PlayerStateClear.cpp
+  ResourceManager.cpp
+  ScoreManager.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\ScoreManager.cpp(94,3): warning C4002: 関数に似たマクロ呼び出し 'assert' の引数が多すぎます
+  HPBar.cpp
+  Crystal.cpp
+  EnemyBase.cpp
+  EnemyNormal.cpp
+  MathHelp.cpp
+  CharacterBase.cpp
+  Collidable.cpp
+  ColliderBase.cpp
+  ColliderCupsule.cpp
+  ColliderSphere.cpp
+  DebugDraw.cpp
+  HealPortion.cpp
+  LoadCSV.cpp
+  MapManager.cpp
+  ObjectBase.cpp
+  Physics.cpp
+  コンパイル中...
+  Player.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Character\Player\Player.cpp(133,64): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  PlayerStateIdle.cpp
+  PlayerStateWalk.cpp
+  Rigidbody.cpp
+  PlayerStateJump.cpp
+  PlayerStateDash.cpp
+  PlayerStateDeath.cpp
+  SceneOption.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(183,46): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(184,55): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(185,46): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(186,55): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(192,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(193,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(194,59): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(195,59): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(223,24): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(237,24): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(264,24): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(278,24): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(312,24): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(325,24): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(355,24): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(368,24): warning C4244: '=': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(447,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(455,30): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(463,34): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(474,24): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(494,27): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(495,27): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(516,27): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneOption.cpp(517,27): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  SceneRanking.cpp
+  SceneResult.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneResult.cpp(143,50): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneResult.cpp(143,31): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneResult.cpp(224,46): warning C4267: '引数': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneResult.cpp(365,41): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  SceneMainMenu.cpp
+  SceneStageSelect.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneStageSelect.cpp(175,21): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneStageSelect.cpp(178,91): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneStageSelect.cpp(178,58): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneStageSelect.cpp(191,23): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneStageSelect.cpp(193,64): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneStageSelect.cpp(193,21): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneStageSelect.cpp(194,104): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Scene\SceneStageSelect.cpp(194,57): warning C4244: '引数': 'float' から 'int' への変換です。データが失われる可能性があります。
+  SceneStrengthen.cpp
+  SceneDebug.cpp
+  ScenePause.cpp
+  StateBase.cpp
+  Shot.cpp
+  TrapManager.cpp
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\TrapManager.cpp(132,28): warning C4267: '=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\TrapManager.cpp(329,24): warning C4267: '-=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\Common\TrapManager.cpp(398,24): warning C4267: '-=': 'size_t' から 'int' に変換しました。データが失われているかもしれません。
+  SwarmEnemy.cpp
+  SpikeTrap.cpp
+  コンパイル中...
+  TrapBase.cpp
+  Camera.cpp
+  Input.cpp
+  Main.cpp
+  SceneBase.cpp
+  SceneGame.cpp
+  SceneManager.cpp
+  SceneTitle.cpp
+  Vec3.cpp
+  Vec2.cpp
+  コード生成しています。
+  Previous IPDB not found, fall back to full compilation.
+  All 6637 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  コード生成が終了しました。
+  EmploymentWork.vcxproj -> C:\Users\fko2347087\Desktop\Github\MonsterMustDie\Projects\x64\Release\EmploymentWork.exe
