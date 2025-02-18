@@ -1,5 +1,4 @@
-【プレイ動画】
-https://youtu.be/er6HSM8xqhI
+
 
 【タイトル】
 MonsterMustDie!
@@ -9,6 +8,9 @@ MonsterMustDie!
 
 【ゲーム内容】
 プレイヤーの攻撃と罠を駆使して迫りくる敵からクリスタルを守るタワーディフェンスアクションゲームです。
+
+【プレイ動画】
+https://youtu.be/er6HSM8xqhI
 
 【プレイ人数】
 1人
