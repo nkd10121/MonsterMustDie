@@ -1,3 +1,6 @@
+【プレイ動画】
+https://youtu.be/er6HSM8xqhI
+
 【タイトル】
 MonsterMustDie!
 
@@ -55,12 +58,6 @@ Escapeキー   : 強制終了
 ①敵がクリスタルに到達した時
 ②プレイヤーのHPが0になって復活した時
 の2パターンです。
-
-【最終更新日】
-2025/2/18
-
-【プレイ動画】
-https://youtu.be/er6HSM8xqhI
 
 【進捗動画リスト】
 https://www.youtube.com/playlist?list=PLpB6hNjpQEyV1NFTLELtS8FENMaKus5cR
