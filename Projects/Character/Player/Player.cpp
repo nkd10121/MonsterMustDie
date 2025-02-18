@@ -130,7 +130,7 @@ void Player::Init(std::string stageId)
 
 	m_shotAnimNo = MV1AttachAnim(m_modelHandle, LoadCSV::GetInstance().GetAnimIdx(m_characterName, "ATTACK"));
 	m_shotAnimBlendRate = 0.0f;
-	MV1SetAttachAnimBlendRateToFrame(m_modelHandle, m_shotAnimNo, m_shotAnimBlendRate, kAttachAnimFrame);
+	MV1SetAttachAnimBlendRateToFrame(m_modelHandle, m_shotAnimNo, kAttachAnimFrame, m_shotAnimBlendRate);
 
 	//プレイヤーのステータス取得
 	m_status = LoadCSV::GetInstance().LoadStatus(m_characterName.c_str());

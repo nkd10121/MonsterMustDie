@@ -54,7 +54,7 @@ void FlameTrap::Init(Vec3 pos, Vec3 direction)
 		//索敵判定を出す座標を計算
 		auto searchPos = pos;
 		searchPos.y += 6.0f;
-		searchPos += m_direction * 14.0f * i;
+		searchPos += m_direction * 14.0f * static_cast<float>(i);
 
 		//索敵判定は動かすつもりがないため、先に中心座標を設定して動かないようにする
 		sphereCol->SetCenterPos(searchPos);
@@ -127,7 +127,7 @@ void FlameTrap::Update()
 					//索敵判定を出す座標を計算
 					auto pos = rigidbody->GetPos();
 					pos.y += 6.0f;
-					pos += m_direction * 14.0f * i;
+					pos += m_direction * 14.0f * static_cast<float>(i);
 
 					//索敵判定は動かすつもりがないため、先に中心座標を設定して動かないようにする
 					sphereCol->SetCenterPos(pos);
@@ -200,7 +200,7 @@ std::vector<Vec3> FlameTrap::GetAttackPos()
 	{
 		//索敵判定を出す座標を計算
 		auto pos = rigidbody->GetPos();
-		pos += m_direction * 14.0f * i;
+		pos += m_direction * 14.0f * static_cast<float>(i);
 
 		ret.push_back(pos);
 	}

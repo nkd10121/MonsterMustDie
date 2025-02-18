@@ -91,7 +91,7 @@ void ScoreManager::Save() const
 	std::ofstream ofs(kSaveDataFilename, std::ios::binary);
 	if (!ofs)
 	{
-		assert(0 && "ファイルを開けませんでした:%d",kSaveDataFilename);
+		assert(0 && "ファイルを開けませんでした");
 		return;
 	}
 

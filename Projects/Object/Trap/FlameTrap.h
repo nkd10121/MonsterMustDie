@@ -47,7 +47,7 @@ private:
 	int m_nowAnimIdx;
 
 	float m_animSpeed;			//アニメーション再生速度
-	int m_animEndFrame;
+	float m_animEndFrame;
 private:
 	float m_angle;
 	Vec3 m_direction;

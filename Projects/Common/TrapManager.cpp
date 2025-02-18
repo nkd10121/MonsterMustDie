@@ -127,9 +127,9 @@ void TrapManager::Update()
 		for (int i = 0;i < 3;i++)
 		{
 			auto idx = i;
-			if (idx > attackPos.size() - 1)
+			if (idx > static_cast<int>(attackPos.size()) - 1)
 			{
-				idx = attackPos.size() - 1;
+				idx = static_cast<int>(attackPos.size()) - 1;
 			}
 
 			EffectManager::GetInstance().CreateEffect(m_createEffectName, attackPos[idx]);
@@ -326,7 +326,7 @@ void TrapManager::Update()
 		{
 			if (i > attackPos.size() - 1)
 			{
-				i -= attackPos.size();
+				i -= static_cast<int>(attackPos.size());
 			}
 
 			EffectManager::GetInstance().SetPos(handle, attackPos[i]);
@@ -395,7 +395,7 @@ void TrapManager::Update()
 		{
 			if (i > attackPos.size() - 1)
 			{
-				i -= attackPos.size();
+				i -= static_cast<int>(attackPos.size());
 			}
 
 			EffectManager::GetInstance().SetPos(handle, attackPos[i]);

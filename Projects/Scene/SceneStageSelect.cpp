@@ -172,10 +172,10 @@ void SceneStageSelect::Draw()
 
 	auto addSize = sinf(m_angle) / 16;
 
-	DrawRotaGraph(1000 + m_cameraMoveDistance * 10, 386, 1.0f + m_cameraMoveDistance / kCameraMoveDistanceFactor, 0.0f, m_bigWindowHandle, true);
+	DrawRotaGraph(1000 + static_cast<int>(m_cameraMoveDistance) * 10, 386, 1.0f + m_cameraMoveDistance / kCameraMoveDistanceFactor, 0.0f, m_bigWindowHandle, true);
 		if (m_nowCursor >= 0)
 	{
-		FontManager::GetInstance().DrawCenteredExtendText(1000 + m_cameraMoveDistance * 10, 540 + m_cameraMoveDistance * 2, "ハイスコア:" + std::to_string(ScoreManager::GetInstance().GetScore(m_stageNames[m_nowCursor])), 0xffffff, 48, 0x000000, 1.0f + m_cameraMoveDistance / kCameraMoveDistanceFactor);
+			FontManager::GetInstance().DrawCenteredExtendText(1000 + static_cast<int>(m_cameraMoveDistance) * 10, 540 + static_cast<int>(m_cameraMoveDistance) * 2, "ハイスコア:" + std::to_string(ScoreManager::GetInstance().GetScore(m_stageNames[m_nowCursor])), 0xffffff, 48, 0x000000, 1.0f + m_cameraMoveDistance / kCameraMoveDistanceFactor);
 	}
 
 	for (int i = 0; i < 3; i++)
@@ -188,10 +188,10 @@ void SceneStageSelect::Draw()
 			graphSize = 1.2f + addSize;
 			fontSize = 48;
 			fontExtendRate += addSize;
-			DrawRotaGraph(1000 + m_cameraMoveDistance * 10, 346, 1.2f + m_cameraMoveDistance / kCameraMoveDistanceFactor, 0.0f, m_stageMinimapHandle[m_nowCursor], true);
+			DrawRotaGraph(1000 + static_cast<int>(m_cameraMoveDistance) * 10, 346, 1.2f + static_cast<int>(m_cameraMoveDistance / kCameraMoveDistanceFactor), 0.0f, m_stageMinimapHandle[m_nowCursor], true);
 		}
-		DrawRotaGraph(300 - m_cameraMoveDistance * 10, 220 + 165 * i + m_cameraMoveDistance * 2 * (i - 1), graphSize + m_cameraMoveDistance / kCameraMoveDistanceFactor, 0.0f, m_smallWindowHandle, true);
-		FontManager::GetInstance().DrawCenteredExtendText(300 - m_cameraMoveDistance * 10, 220 + 165 * i - 5 + m_cameraMoveDistance * 2 * (i - 1), m_stageNames[i], 0xffffff, fontSize, 0x000000, fontExtendRate + m_cameraMoveDistance / kCameraMoveDistanceFactor);
+		DrawRotaGraph(300 - static_cast<int>(m_cameraMoveDistance) * 10, 220 + 165 * i + static_cast<int>(m_cameraMoveDistance) * 2 * (i - 1), graphSize + m_cameraMoveDistance / kCameraMoveDistanceFactor, 0.0f, m_smallWindowHandle, true);
+		FontManager::GetInstance().DrawCenteredExtendText(300 - static_cast<int>(m_cameraMoveDistance) * 10, 220 + 165 * i - 5 + static_cast<int>(m_cameraMoveDistance) * 2 * (i - 1), m_stageNames[i], 0xffffff, fontSize, 0x000000, fontExtendRate + m_cameraMoveDistance / kCameraMoveDistanceFactor);
 	}
 
 	DrawRotaGraph(36, Game::kWindowHeight - 36, 0.5f, 0.0f, ResourceManager::GetInstance().GetHandle("I_B"), true);

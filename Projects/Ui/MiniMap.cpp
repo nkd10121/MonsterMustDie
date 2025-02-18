@@ -80,14 +80,14 @@ void MiniMap::Draw()
 		//DrawRotaGraph(kRightUiX, kRightUiY2, kRightUiScale2, 0.0f, m_ironHandle, true);
 		DrawRotaGraph(kRightUiX, kRightUiY1, 0.72f, 0.0f, m_minimapHandle, true);
 
-		DrawCircle(m_crystalPosOnMinimap.x, m_crystalPosOnMinimap.y, 4, 0x0000ff, true);
-		DrawCircle(m_playerPosOnMinimap.x, m_playerPosOnMinimap.y, 2, 0x00ff00, true);
+		DrawCircle(static_cast<int>(m_crystalPosOnMinimap.x), static_cast<int>(m_crystalPosOnMinimap.y), 4, 0x0000ff, true);
+		DrawCircle(static_cast<int>(m_playerPosOnMinimap.x), static_cast<int>(m_playerPosOnMinimap.y), 2, 0x00ff00, true);
 
 		for (auto& enemyPos : m_enemyPosOnMinimap)
 		{
 			if (enemyPos.y < kRightUiY1 - kOffsetY)	continue;
 
-			DrawCircle(enemyPos.x, enemyPos.y, 2, 0xff0000, true);
+			DrawCircle(static_cast<int>(enemyPos.x), static_cast<int>(enemyPos.y), 2, 0xff0000, true);
 		}
 	}, 0);
 

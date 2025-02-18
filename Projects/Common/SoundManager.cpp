@@ -261,18 +261,24 @@ void SoundManager::StopBGM(std::string id)
 /// </summary>
 bool SoundManager::isPlayingSound(std::string id)
 {
-
 	//指定したIDと一致するハンドルが存在していたら
 	if (m_BGM.id == id)
 	{
 		//流れているかどうかを返す
+		if (CheckPlaying(m_BGM.handle))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 
-#ifdef _DEBUG	//デバッグ描画
-		assert(0 && "指定したIDは存在しません。");
-#endif
-		return false;
 	}
-
+#ifdef _DEBUG	//デバッグ描画
+	assert(0 && "指定したIDは存在しません。");
+#endif
+	return false;
 }
 
 

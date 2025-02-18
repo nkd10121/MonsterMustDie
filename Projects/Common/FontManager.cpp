@@ -151,8 +151,8 @@ void FontManager::DrawCenteredExtendText(int x, int y, std::string text, unsigne
 		return;
 	}
 
-	int textWidth = GetDrawStringWidthToHandle(text.c_str(), static_cast<int>(text.length()), drawFont.handle) * extendRate;
-	int textHeight = GetFontSizeToHandle(drawFont.handle) * extendRate;
+	int textWidth = static_cast<int>(GetDrawStringWidthToHandle(text.c_str(), static_cast<int>(text.length()), drawFont.handle) * extendRate);
+	int textHeight = static_cast<int>(GetFontSizeToHandle(drawFont.handle) * extendRate);
 	DrawExtendStringToHandle(x - textWidth / 2, y - textHeight / 2,extendRate, extendRate, text.c_str(), color, drawFont.handle, edgeColor);
 }
 

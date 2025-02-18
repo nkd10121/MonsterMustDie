@@ -95,14 +95,14 @@ EnemyManager::EnemyManager(bool isGame) :
 		auto enemyName = LoadCSV::GetInstance().GetAllEnemyName();
 
 		m_createEnemyInfo[0] = std::list<EnemyCreateInfo>();
-		for (int i = 0; i < 14; i++)
+		for (float i = 0.0f; i < 14.0f; i += 1.0f)
 		{
 			EnemyCreateInfo add;
 			add.appearFrame = i;
 			add.isCreated = false;
 
 			//add.enemyName = "EnemyNormal";
-			add.enemyName = enemyName[GetRand(enemyName.size() - 1)];
+			add.enemyName = enemyName[GetRand(static_cast<int>(enemyName.size()) - 1)];
 			m_createEnemyInfo[0].push_back(add);
 		}
 	}
@@ -338,7 +338,7 @@ void EnemyManager::Draw()
 			DrawBox(kDrawKillStreakUIX, kDrawKillStreakUIY + kDrawKillStreakUIIntervalY * 2, kDrawKillStreakUIX + kDrawKillStreakUIIntervalX * 2, kDrawKillStreakUIY + kDrawKillStreakUIIntervalY * 2 + kDrawKillStreakUIBoxSize, 0xffffff, false);
 			auto limitTime = kKillStreakResetTime - (10 * m_killStreakCount);
 			auto per = static_cast<float>(m_killStreakTime) / static_cast<float>(limitTime);
-			DrawBox(kDrawKillStreakUIX, kDrawKillStreakUIY + kDrawKillStreakUIIntervalY * 2, kDrawKillStreakUIX + kDrawKillStreakUIIntervalX * 2 * (1.0f - per), kDrawKillStreakUIY + kDrawKillStreakUIIntervalY * 2 + kDrawKillStreakUIBoxSize, 0x91cdd9, true);
+			DrawBox(kDrawKillStreakUIX, kDrawKillStreakUIY + kDrawKillStreakUIIntervalY * 2, static_cast<int>(kDrawKillStreakUIX + kDrawKillStreakUIIntervalX * 2 * (1.0f - per)), kDrawKillStreakUIY + kDrawKillStreakUIIntervalY * 2 + kDrawKillStreakUIBoxSize, 0x91cdd9, true);
 		}, 2);
 	}
 
@@ -528,7 +528,7 @@ void EnemyManager::CreateEnemy(int phaseNum, int count, bool isInGame)
 				if (!isInGame)
 				{
 					EnemyCreateInfo add;
-					add.appearFrame = count / 60 + GetRand(2) + 12;
+					add.appearFrame = static_cast<float>(count / 60 + GetRand(2) + 12);
 					add.isCreated = false;
 					add.enemyName = "EnemyNormal";
 					m_createEnemyInfo[0].push_back(add);
@@ -571,7 +571,7 @@ void EnemyManager::CreateEnemy(int phaseNum, int count, bool isInGame)
 				if (!isInGame)
 				{
 					EnemyCreateInfo add;
-					add.appearFrame = count / 60 + GetRand(2) + 12;
+					add.appearFrame = static_cast<float>(count / 60 + GetRand(2) + 12);
 					add.isCreated = false;
 					add.enemyName = "EnemyFast";
 					m_createEnemyInfo[0].push_back(add);
@@ -614,7 +614,7 @@ void EnemyManager::CreateEnemy(int phaseNum, int count, bool isInGame)
 				if (!isInGame)
 				{
 					EnemyCreateInfo add;
-					add.appearFrame = count / 60 + GetRand(2) + 12;
+					add.appearFrame = static_cast<float>(count / 60 + GetRand(2) + 12);
 					add.isCreated = false;
 					add.enemyName = "EnemyBig";
 					m_createEnemyInfo[0].push_back(add);

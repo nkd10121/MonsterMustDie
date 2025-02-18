@@ -140,7 +140,7 @@ void SceneResult::Draw()
 	DrawBox(0, 0, Game::kWindowWidth, Game::kWindowHeight, 0x000000, true);
 	SetDrawBlendMode(DX_BLENDMODE_NOBLEND, 0);
 
-	DrawRotaGraph(m_windowDrawPos.x, m_windowDrawPos.y, 1.0f, 0.0f, m_windowHandle, true);
+	DrawRotaGraph(static_cast<int>(m_windowDrawPos.x), static_cast<int>(m_windowDrawPos.y), 1.0f, 0.0f, m_windowHandle, true);
 
 	//状態の更新
 	(this->*m_drawFunc)();
@@ -221,7 +221,7 @@ void SceneResult::SelectNextSceneUpdate()
 				if (m_isClear)
 				{
 					SceneManager::GetInstance().SetNextScene(std::make_shared<SceneGame>());
-					SceneManager::GetInstance().SetStageIdx(min(SceneManager::GetInstance().GetStageIdx() + 1, LoadCSV::GetInstance().GetAllStageName().size() - 1));
+					SceneManager::GetInstance().SetStageIdx(min(SceneManager::GetInstance().GetStageIdx() + 1, static_cast<int>(LoadCSV::GetInstance().GetAllStageName().size()) - 1));
 					EndThisScene();
 					return;
 				}
@@ -362,7 +362,7 @@ void SceneResult::DrawNormal()
 	}
 	else
 	{
-		DrawRotaGraph(Game::kWindowWidth / 2, m_resultTextAngle, 1.6f, 0.0f, ResourceManager::GetInstance().GetHandle("I_GAMEOVERTEXT"), true);
+		DrawRotaGraph(Game::kWindowWidth / 2, static_cast<int>(m_resultTextAngle), 1.6f, 0.0f, ResourceManager::GetInstance().GetHandle("I_GAMEOVERTEXT"), true);
 	}
 }
 

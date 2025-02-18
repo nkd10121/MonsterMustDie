@@ -177,7 +177,7 @@ void SceneOption::Draw()
 	FontManager::GetInstance().DrawCenteredText(Game::kWindowWidth / 3 * 2, 50, "その他", tc, 40, 0x000000);
 
 
-	auto offset = sinf(m_angle) * 4;
+	auto offset = static_cast<int>(sinf(m_angle) * 4);
 	if (m_nowItem < 3)
 	{
 		DrawRotaGraph(Game::kWindowWidth / 3 + 180 + offset, 58,1.0f,0.0f,m_uiArrowHandle,true);
@@ -220,7 +220,7 @@ void SceneOption::UpdateMasterVolume()
 			if (m_pushCount > m_keyRepeatFrame)
 			{
 				m_pushCount = 0;
-				m_keyRepeatFrame = max(m_keyRepeatFrame * 0.6f, 0);
+				m_keyRepeatFrame = max(static_cast<int>(m_keyRepeatFrame * 0.6f), 0);
 			}
 			Setting::GetInstance().SetMasterVolume(min(Setting::GetInstance().GetMasterVolume() + 0.01f, 1.0f));
 			SoundManager::GetInstance().BGMChangeVolume();
@@ -234,7 +234,7 @@ void SceneOption::UpdateMasterVolume()
 			if (m_pushCount > m_keyRepeatFrame)
 			{
 				m_pushCount = 0;
-				m_keyRepeatFrame = max(m_keyRepeatFrame * 0.6f, 0);
+				m_keyRepeatFrame = max(static_cast<int>(m_keyRepeatFrame * 0.6f), 0);
 			}
 			Setting::GetInstance().SetMasterVolume(max(Setting::GetInstance().GetMasterVolume() - 0.01f, 0.0f));
 			SoundManager::GetInstance().BGMChangeVolume();
@@ -261,7 +261,7 @@ void SceneOption::UpdateBGMVolume()
 			if (m_pushCount > m_keyRepeatFrame)
 			{
 				m_pushCount = 0;
-				m_keyRepeatFrame = max(m_keyRepeatFrame * 0.6f, 0);
+				m_keyRepeatFrame = max(static_cast<int>(m_keyRepeatFrame * 0.6f), 0);
 			}
 			Setting::GetInstance().SetBGMVolume(min(Setting::GetInstance().GetBGMVolume() + 0.01f, 1.0f));
 			SoundManager::GetInstance().BGMChangeVolume();
@@ -275,7 +275,7 @@ void SceneOption::UpdateBGMVolume()
 			if (m_pushCount > m_keyRepeatFrame)
 			{
 				m_pushCount = 0;
-				m_keyRepeatFrame = max(m_keyRepeatFrame * 0.6f, 0);
+				m_keyRepeatFrame = max(static_cast<int>(m_keyRepeatFrame * 0.6f), 0);
 			}
 			Setting::GetInstance().SetBGMVolume(max(Setting::GetInstance().GetBGMVolume() - 0.01f, 0.0f));
 			SoundManager::GetInstance().BGMChangeVolume();
@@ -309,7 +309,7 @@ void SceneOption::UpdateSEVolume()
 			if (m_pushCount > m_keyRepeatFrame)
 			{
 				m_pushCount = 0;
-				m_keyRepeatFrame = max(m_keyRepeatFrame * 0.6f, 0);
+				m_keyRepeatFrame = max(static_cast<int>(m_keyRepeatFrame * 0.6f), 0);
 			}
 			Setting::GetInstance().SetSEVolume(min(Setting::GetInstance().GetSEVolume() + 0.01f, 1.0f));
 		}
@@ -322,7 +322,7 @@ void SceneOption::UpdateSEVolume()
 			if (m_pushCount > m_keyRepeatFrame)
 			{
 				m_pushCount = 0;
-				m_keyRepeatFrame = max(m_keyRepeatFrame * 0.6f, 0);
+				m_keyRepeatFrame = max(static_cast<int>(m_keyRepeatFrame * 0.6f), 0);
 			}
 			Setting::GetInstance().SetSEVolume(max(Setting::GetInstance().GetSEVolume() - 0.01f, 0.0f));
 		}
@@ -352,7 +352,7 @@ void SceneOption::UpdateSensitivity()
 			if (m_pushCount > m_keyRepeatFrame)
 			{
 				m_pushCount = 0;
-				m_keyRepeatFrame = max(m_keyRepeatFrame * 0.6f, 0);
+				m_keyRepeatFrame = max(static_cast<int>(m_keyRepeatFrame * 0.6f), 0);
 			}
 			Setting::GetInstance().SetSensitivity(min(Setting::GetInstance().GetSensitivity() + 0.01f, 1.0f));
 		}
@@ -365,7 +365,7 @@ void SceneOption::UpdateSensitivity()
 			if (m_pushCount > m_keyRepeatFrame)
 			{
 				m_pushCount = 0;
-				m_keyRepeatFrame = max(m_keyRepeatFrame * 0.6f, 0);
+				m_keyRepeatFrame = max(static_cast<int>(m_keyRepeatFrame * 0.6f), 0);
 			}
 			Setting::GetInstance().SetSensitivity(max(Setting::GetInstance().GetSensitivity() - 0.01f, 0.0f));
 		}
@@ -443,7 +443,7 @@ void SceneOption::DrawSound(std::vector<unsigned int> color)
 
 	FontManager::GetInstance().DrawCenteredText(240, 220, std::to_string(static_cast<int>(Setting::GetInstance().GetMasterVolume() * 100)), color[0], 48, 0x000000);
 	DrawBox(320, 220, 900, 240, color[0], false);
-	auto x = (900 - 320) * Setting::GetInstance().GetMasterVolume();
+	auto x = static_cast<int>((900 - 320) * Setting::GetInstance().GetMasterVolume());
 	DrawBox(320, 220, 320 + x, 240, color[0], true);
 
 	text = "BGMボリューム:";
@@ -451,7 +451,7 @@ void SceneOption::DrawSound(std::vector<unsigned int> color)
 
 	FontManager::GetInstance().DrawCenteredText(240, 220 + 180, std::to_string(static_cast<int>(Setting::GetInstance().GetBGMVolume() * 100)), color[1], 48, 0x000000);
 	DrawBox(320, 220 + 180, 900, 240 + 180, color[1], false);
-	x = (900 - 320) * Setting::GetInstance().GetBGMVolume();
+	x = static_cast<int>((900 - 320) * Setting::GetInstance().GetBGMVolume());
 	DrawBox(320, 220 + 180, 320 + x, 240 + 180, color[1], true);
 
 	text = "SEボリューム:";
@@ -459,7 +459,7 @@ void SceneOption::DrawSound(std::vector<unsigned int> color)
 	FontManager::GetInstance().DrawCenteredText(240, 220 + 180 * 2, std::to_string(static_cast<int>(Setting::GetInstance().GetSEVolume() * 100)), color[2], 48, 0x000000);
 
 	DrawBox(320, 220 + 180 * 2, 900, 240 + 180 * 2, color[2], false);
-	x = (900 - 320) * Setting::GetInstance().GetSEVolume();
+	x = static_cast<int>((900 - 320) * Setting::GetInstance().GetSEVolume());
 	DrawBox(320, 220 + 180 * 2, 320 + x, 240 + 180 * 2, color[2], true);
 }
 
@@ -470,7 +470,7 @@ void SceneOption::DrawOther(std::vector<unsigned int> color)
 
 	FontManager::GetInstance().DrawCenteredText(240, 220, std::to_string(static_cast<int>(Setting::GetInstance().GetSensitivity() * 100)), color[3], 48, 0x000000);
 	DrawBox(320, 220, 900, 240, color[3], false);
-	auto x = (900 - 320) * Setting::GetInstance().GetSensitivity();
+	auto x = static_cast<int>((900 - 320) * Setting::GetInstance().GetSensitivity());
 	DrawBox(320, 220, 320 + x, 240, color[3], true);
 
 	text = "ディスプレイモード:";
@@ -489,7 +489,7 @@ void SceneOption::DrawOther(std::vector<unsigned int> color)
 
 	if (m_nowItem == Item::FullScreen)
 	{
-		auto offset = sinf(-m_angle) * 2;
+		auto offset = static_cast<int>(sinf(-m_angle) * 2);
 
 		DrawRotaGraph(600 + 180 + offset, 220 + 180 + 5, 1.0f, 0.0f, m_uiArrowHandle, true);
 		DrawRotaGraph(600 - 180 - offset, 220 + 180 + 5, 1.0f, 0.0f, m_uiArrowHandle, true, true);
@@ -511,7 +511,7 @@ void SceneOption::DrawOther(std::vector<unsigned int> color)
 	FontManager::GetInstance().DrawCenteredText(600, 220 + 180 * 2, text, color[5], 32, 0x000000);
 	if (m_nowItem == Item::DrawOperation)
 	{
-		auto offset = sinf(-m_angle) * 2;
+		auto offset = static_cast<int>(sinf(-m_angle) * 2);
 
 		DrawRotaGraph(600 + 110 + offset, 220 + 180 * 2 + 5, 1.0f, 0.0f, m_uiArrowHandle, true);
 		DrawRotaGraph(600 - 110 - offset, 220 + 180 * 2 + 5, 1.0f, 0.0f, m_uiArrowHandle, true, true);
