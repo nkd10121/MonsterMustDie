@@ -15,14 +15,14 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Init(std::string id);
+	void Init(std::string id) {};
 	/// <summary>
 	/// 更新
 	/// </summary>
 	virtual void Update() override;
 
 private:
-	int m_frame;
-	int m_trapPointGraphHandle;
+	int m_deathFrame;				//死んでからのカウント数
+	int m_trapPointGraphHandle;		//トラップアイコンのハンドル
 };
 

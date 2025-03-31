@@ -28,20 +28,31 @@ public:
 	void Update();
 
 	/// <summary>
-	/// カメラが向いている方向ベクトルを取得
-	/// </summary>
-	/// <returns>カメラが向いている方向ベクトル</returns>
-	const Vec3 GetDirection()const;
-
-	const Vec3 GetCameraPos()const { return m_cameraPos; }
-	const Vec3 GetTargetPos()const { return m_aimPos; }
-
-	/// <summary>
 	/// プレイヤーの座標を設定する
 	/// </summary>
 	/// <param name="playerPos">プレイヤーの座標</param>
 	void SetPlayerPos(Vec3 playerPos) { m_playerPos = playerPos; }
 
+	/// <summary>
+	/// カメラが向いている方向ベクトルを取得
+	/// </summary>
+	/// <returns>カメラが向いている方向ベクトル</returns>
+	const Vec3 GetDirection()const;
+	/// <summary>
+	/// カメラの座標を取得
+	/// </summary>
+	/// <returns>カメラの座標</returns>
+	const Vec3 GetCameraPos()const { return m_cameraPos; }
+	/// <summary>
+	/// カメラの注視点座標を取得
+	/// </summary>
+	/// <returns>注視点座標</returns>
+	const Vec3 GetTargetPos()const { return m_aimPos; }
+
+	/// <summary>
+	/// カメラから注視点方向ベクトルに飛ばしたレイの地形と当たった座標を取得
+	/// </summary>
+	/// <returns></returns>
 	const Vec3 GetMapHitPosition()const;
 
 private:
@@ -53,6 +64,6 @@ private:
 	float m_angleMoveScale;		//視点移動速度
 	int m_lightHandle;			//ライトハンドル
 
-	int m_stageHandle;
+	int m_stageHandle;			//ステージハンドル
 };
 

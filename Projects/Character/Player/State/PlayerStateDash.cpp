@@ -67,8 +67,7 @@ void PlayerStateDash::Update()
 	auto dir = GetDirection(input.first, -input.second);
 
 	//左スティックが入力されていなかったらStateをIdleにする
-	if (Input::GetInstance().GetInputStick(false).first == 0.0f &&
-		Input::GetInstance().GetInputStick(false).second == 0.0f)
+	if (Input::GetInstance().IsStickNeutral(false))
 	{
 		ChangeState(StateKind::Idle);
 		return;

@@ -59,7 +59,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	FontManager::GetInstance().LoadFont();
 
 #ifdef _DEBUG
-	//最初にタイトルシーンに遷移する
+	//最初にデバッグシーンに遷移する
 	SceneManager::GetInstance().SetNextScene(std::make_shared<SceneDebug>());
 #else
 	//最初にタイトルシーンに遷移する

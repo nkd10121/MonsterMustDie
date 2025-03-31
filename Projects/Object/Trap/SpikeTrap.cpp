@@ -6,12 +6,6 @@
 
 namespace
 {
-	//当たり判定の円の半径
-	constexpr float kCollisionRadius = 11.0f;
-
-	//モデルサイズ
-	constexpr float kModelScale = 1.6f;
-
 	constexpr float kSpikeMoveSpeed = 0.8f;
 
 	//モデルのスパイク部分を地面に埋めておくためのオフセット

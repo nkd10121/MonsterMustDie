@@ -7,17 +7,21 @@
 class EnemyStateDamaged : public StateBase
 {
 public:
+	/// <summary>
+	/// コンストラクタ
+	/// </summary>
+	/// <param name="own"></param>
 	EnemyStateDamaged(std::shared_ptr<CharacterBase> own);
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Init(std::string id);
+	void Init(std::string id){};
 	/// <summary>
 	/// 更新
 	/// </summary>
 	virtual void Update() override;
 
 private:
-	int m_damagedCount;
+	int m_damagedCount;	//ダメージを受けてからのカウント
 };
 

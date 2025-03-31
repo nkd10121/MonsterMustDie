@@ -5,8 +5,6 @@
 
 namespace
 {
-	//当たり判定の円の半径
-	constexpr float kCollisionRadius = 11.0f;
 	//索敵判定の間隔
 	constexpr float kSearchCollisionInterval = 10.0f;
 }

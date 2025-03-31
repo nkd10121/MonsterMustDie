@@ -37,7 +37,7 @@ namespace
 
 	//武器モデル
 	constexpr float kCrossbowModelScale = 0.64f;	//モデルのサイズ
-	const char* kAttachFrameName = "mixamorig:RightHandThumb1";
+	const char* kHeadFrameName = "mixamorig:RightHandThumb1";
 
 	/*アニメーション関係*/
 	constexpr float kAnimChangeFrame = 10.0f;							//アニメーションの切り替えにかかるフレーム数
@@ -376,7 +376,7 @@ void Player::UpdateModelPos()
 	if (m_pState->GetKind() != StateBase::StateKind::Clear)
 	{
 		//クロスボウモデル描画座標の更新
-		auto weaponAttachFrameNum = MV1SearchFrame(m_modelHandle, kAttachFrameName);
+		auto weaponAttachFrameNum = MV1SearchFrame(m_modelHandle, kHeadFrameName);
 		auto weaponFrameMat = MV1GetFrameLocalWorldMatrix(m_modelHandle, weaponAttachFrameNum);
 
 		//結果収納用変数

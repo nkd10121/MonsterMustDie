@@ -4,9 +4,6 @@
 
 namespace
 {
-	//当たり判定の円の半径
-	constexpr float kCollisionRadius = 11.0f;
-
 	//ボーン（フレーム）の名前を指定
 	const char* kTargetFrameName = "Obstacle-7-Saw-Holder";
 }
@@ -60,7 +57,7 @@ void CutterTrap::Update()
 	if (!m_isExist)return;
 
 	//攻撃用当たり判定を生成する
-	if (m_attackCount % 30 == 0)
+	if (m_attackCount % m_status.coolTime == 0)
 	{
 		//すでにある攻撃判定を削除する
 		if (m_attackCount > 0)

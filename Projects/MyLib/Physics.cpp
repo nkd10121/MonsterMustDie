@@ -377,159 +377,6 @@ std::vector<std::shared_ptr<MyLib::Collidable>> MyLib::Physics::GetCollisionList
 /// </summary>
 void MyLib::Physics::CheckColide()
 {
-#if false
-	int checkNum = 0;
-
-	// 衝突通知、ポジション補正
-	bool	doCheck = true;
-	int		checkCount = 0;	// チェック回数
-	while (doCheck)
-	{
-		doCheck = false;
-		++checkCount;
-
-#if weight_reduction
-		//すでに当たり判定のチェックを試したペアじゃないか確認するための変数
-		std::map<std::shared_ptr<MyLib::ColliderBase>, std::list<std::shared_ptr<MyLib::ColliderBase>>> checkedPair;
-		//std::list<std::pair<std::shared_ptr<MyLib::Collidable>, std::shared_ptr<MyLib::Collidable>>> checkedPair;
-#endif
-
-		// 2重ループで全オブジェクト当たり判定
-		// 中で同一オブジェクトじゃないか、すでにチェックしたペアと同じ組み合わせの当たり判定チェックをしていないか、比較するオブジェクト間の距離が一定距離以上じゃないか　判別したうえで計算している
-		for (const auto& objA : m_collidables)
-		{
-			for (const auto& objB : m_collidables)
-			{
-				//同一オブジェクトなら早期リターン
-				if (objA == objB)
-					continue;
-
-				for (int i = 0; i < objA->m_colliders.size(); i++)
-				{
-					for (int j = 0; j < objB->m_colliders.size(); j++)
-					{
-						auto& colA = objA->m_colliders.at(i);
-						auto& colB = objB->m_colliders.at(j);
-
-						// 優先度に合わせて変数を変更
-						auto primary = objA;
-						auto secondary = objB;
-						auto primaryCollider = colA;
-						auto secondaryCollider = colB;
-						auto index = i;
-						// Aの方が優先度低い場合
-						if (objA->GetPriority() < objB->GetPriority())
-						{
-							primary = objB;
-							secondary = objA;
-							primaryCollider = colB;
-							secondaryCollider = colA;
-							index = j;
-						}
-						// 優先度が変わらない場合
-						else if (objA->GetPriority() == objB->GetPriority())
-						{
-							// 速度の速い方を優先度が高いことにする
-							if (objA->rigidbody->GetVelocity().SqLength() < objB->rigidbody->GetVelocity().SqLength())
-							{
-								primary = objB;
-								secondary = objA;
-								primaryCollider = colB;
-								secondaryCollider = colA;
-								index = j;
-							}
-						}
-
-
-
-#if weight_reduction
-						//最初は新しいペアという認識でいく
-						bool isNewPair = true;
-						//当たり判定チェック済みペアの中に同じ組み合わせのペアが存在しないかチェック
-						for (auto& chacked : checkedPair)
-						{
-							//もし同じ組み合わせのペアが見つかったらこのペアは新しいペアじゃない
-							if (chacked.first == colB)
-							{
-								for (auto& col : chacked.second)
-								{
-									if (!isNewPair)break;
-
-									if (col == colA)
-									{
-										isNewPair = false;
-									}
-								}
-
-							}
-						}
-						//新しいペアじゃないなら早期リターン
-						if (!isNewPair)
-						{
-							continue;
-						}
-						//ここに来たということは新しいペア
-						//今回のペアをチェック済みペアとして登録する
-						checkedPair[colA].emplace_back(colB);
-#endif
-
-						checkNum++;
-
-						if (!IsCollide(objA->rigidbody, objB->rigidbody, objA->m_colliders[i].collide.get(), objB->m_colliders[j].collide.get())) continue;
-
-						bool isTrigger = objA->m_colliders[i]->collide->IsTrigger() || objB->m_colliders[j]->collide->IsTrigger();
-
-						if (isTrigger)
-						{
-							AddNewCollideInfo(objA, objB, i, j, m_newTirrigerInfo);
-							continue;
-						}
-						else
-						{
-							AddNewCollideInfo(objA, objB, i, j, m_newCollideInfo);
-						}
-
-						//auto primary = objA;
-						//auto secondary = objB;
-
-						//if (primary == secondary)
-						//{
-						//	break;
-						//}
-
-						//auto primaryCollider = objA->m_colliders[i];
-						//auto secondaryCollider = objB->m_colliders[j];
-						//if (objA->priority < objB->priority)
-						//{
-						//	primary = objB;
-						//	secondary = objA;
-						//	primaryCollider = objB->m_colliders[j];
-						//	secondaryCollider = objA->m_colliders[i];
-						//}
-
-						FixNextPosition(primary->rigidbody, secondary->rigidbody, primaryCollider.collide.get(), secondaryCollider.collide.get());
-						// 位置補正をしたらもう一度初めから行う
-						doCheck = true;
-						break;
-					}
-					if (doCheck) break;
-				}
-				if (doCheck) break;
-			}
-			if (doCheck) break;
-		}
-		if (doCheck && checkCount > 800)
-		{
-#if _DEBUG
-			//printf("規定回数を超えました");
-#endif
-			break;
-		}
-	}
-
-	printf("チェック回数:%d\n", checkNum);
-
-#else 
 	// 判定リスト取得
 	const auto& checkColliders = GetCollisionList();
 	// 判定リストはペアになっているので半分の数だけ繰り返す
@@ -567,8 +414,6 @@ void MyLib::Physics::CheckColide()
 
 					// 判定回数増加
 					checkCount++;
-
-
 
 					// 優先度に合わせて変数を変更
 					auto primary = objA;
@@ -629,9 +474,6 @@ void MyLib::Physics::CheckColide()
 
 #ifdef _DEBUG
 	printf("試行回数:%d\n", checkCount);
-#endif
-
-
 #endif
 }
 

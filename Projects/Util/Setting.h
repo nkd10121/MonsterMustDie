@@ -1,4 +1,8 @@
 ﻿#pragma once
+
+/// <summary>
+/// オプションの設定
+/// </summary>
 class Setting
 {
 private:
@@ -9,7 +13,7 @@ private:
 	/// <summary>
 	/// デストラクタ
 	/// </summary>
-	virtual ~Setting();
+	virtual ~Setting() {};
 
 	static Setting* m_instance;	//インスタンス
 
@@ -46,44 +50,89 @@ public:
 	}
 
 public:
-	//マスターボリュームを設定する
+	/// <summary>
+	/// マスターボリュームを設定する
+	/// </summary>
+	/// <param name="volume">マスターボリューム</param>
 	void SetMasterVolume(float volume) { m_data.masterVolume = volume; }
-	//BGMボリュームを設定する
+	/// <summary>
+	/// BGMボリュームを設定する
+	/// </summary>
+	/// <param name="volume">BGMボリューム</param>
 	void SetBGMVolume(float volume) { m_data.bgmVolume = volume; }
-	//SEボリュームを設定する
+	/// <summary>
+	/// SEボリュームを設定する
+	/// </summary>
+	/// <param name="volume">SEボリューム</param>
 	void SetSEVolume(float volume) { m_data.seVolume = volume; }
-	//感度を設定する
+	/// <summary>
+	/// カメラ感度を設定する
+	/// </summary>
+	/// <param name="sensitivity">カメラ感度</param>
 	void SetSensitivity(float sensitivity) { m_data.sensitivity = sensitivity; }
-	//フルスクリーンを設定する
+	/// <summary>
+	/// フルスクリーンを設定する
+	/// </summary>
+	/// <param name="isFullScreen">フルスクリーンフラグ</param>
 	void SetIsFullScreen(bool isFullScreen) { m_data.isFullScreen = isFullScreen; }
-	//操作説明を描画するかを設定する
+	/// <summary>
+	/// 操作説明を描画するかを設定する
+	/// </summary>
+	/// <param name="isDrawOperation">描画フラグ</param>
 	void SetIsDrawOperation(bool isDrawOperation) { m_data.isDrawOperation = isDrawOperation; }
 
-	//マスターボリュームを取得する
+	/// <summary>
+	/// マスターボリュームを取得する
+	/// </summary>
+	/// <returns>マスターボリューム</returns>
 	const float GetMasterVolume()const { return m_data.masterVolume; }
-	//BGMボリュームを取得する
+	/// <summary>
+	/// BGMボリュームを取得する
+	/// </summary>
+	/// <returns>BGMボリューム</returns>
 	const float GetBGMVolume()const { return m_data.bgmVolume; }
-	//SEボリュームを取得する
+	/// <summary>
+	/// SEボリュームを取得する
+	/// </summary>
+	/// <returns>SEボリューム</returns>
 	const float GetSEVolume()const { return m_data.seVolume; }
-	//感度を取得する
+	/// <summary>
+	/// カメラ感度を取得する
+	/// </summary>
+	/// <returns>カメラ感度</returns>
 	const float GetSensitivity()const { return m_data.sensitivity; }
-	//フルスクリーンを取得する
+	/// <summary>
+	/// フルスクリーンを取得する
+	/// </summary>
+	/// <returns>フルスクリーンフラグ</returns>
 	const bool GetIsFullScreen()const { return m_data.isFullScreen; }
-	//操作説明を描画するかを取得する
+	/// <summary>
+	/// 操作説明を描画するかを取得する
+	/// </summary>
+	/// <returns>描画フラグ</returns>
 	const bool GetIsDrawOperation()const { return m_data.isDrawOperation; }
 
-	//オプションデータを読み込む
+	/// <summary>
+	/// オプションデータを読み込む
+	/// </summary>
 	void Load();
-	//オプションデータを保存する
+	/// <summary>
+	/// オプションデータを保存する
+	/// </summary>
 	void Save();
 
 private:
-	//オプションデータを全消去する
-	void ClearData();
-	//新しいオプションデータを生成する
+	/// <summary>
+	/// オプションデータをリセットする
+	/// </summary>
+	void ResetData();
+	/// <summary>
+	/// 新しいオプションデータを生成する
+	/// </summary>
 	void CreateNewData();
 
 private:
+	//オプションデータをまとめた構造体
 	struct Data
 	{
 		float masterVolume;
@@ -95,7 +144,7 @@ private:
 		bool isFullScreen;
 		bool isDrawOperation;
 	};
-private:
-	Data m_data;
+
+	Data m_data;	//データ
 };
 

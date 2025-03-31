@@ -246,7 +246,7 @@ void Crystal::CheckCameraRayHit(const Vec3 cameraPos, const Vec3 targetPos)
 	auto center = Vec3(rigidbody->GetPos().x, (kCollisionSize / 2 + kCollisionRadius)/2,rigidbody->GetPos().z);
 	auto nearPos = GetNearestPtOnLine(cameraPos, targetPos, center);
 
-	if ((center - nearPos).Length() <= (kCollisionSize / 2 + kCollisionRadius)/2)
+	if ((center - nearPos).Length() <= (kCollisionSize / 2 + kCollisionRadius) * 0.8f)
 	{
 		pUserData->isNormalDraw = false;
 	}

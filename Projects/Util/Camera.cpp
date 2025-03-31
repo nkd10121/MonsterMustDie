@@ -40,9 +40,12 @@ Camera::Camera() :
 	m_aimPos(),
 	m_playerPos(),
 	m_angleMoveScale(kAngleMoveScaleMax),
-	m_lightHandle(-1)
+	m_lightHandle(-1),
+	m_stageHandle(-1)
 {
+	//カメラの手前クリップ距離と奥クリップ距離を設定する
 	SetCameraNearFar(kCameraNear, kCameraFar);
+	// ディレクショナルライトを作成
 	m_lightHandle = CreateDirLightHandle((m_aimPos - m_cameraPos).ToVECTOR());
 }
 
@@ -51,6 +54,7 @@ Camera::Camera() :
 /// </summary>
 Camera::~Camera()
 {
+	// ライトハンドルを削除
 	DeleteLightHandle(m_lightHandle);
 }
 
@@ -59,9 +63,7 @@ Camera::~Camera()
 /// </summary>
 void Camera::Init(int& handle)
 {
-	m_cameraAngleX = 0.0f;
-	m_cameraAngleY = 0.0f;
-
+	// ステージハンドルを設定
 	m_stageHandle = handle;
 }
 
@@ -70,41 +72,23 @@ void Camera::Init(int& handle)
 /// </summary>
 void Camera::Update()
 {
-	auto mag = Setting::GetInstance().GetSensitivity();
-	m_angleMoveScale = max(4.0f * mag,0.1f);
+	// 感度を取得
+	auto sensitivity = Setting::GetInstance().GetSensitivity();
+	m_angleMoveScale = max(4.0f * sensitivity,0.1f);
 
+	// スティック入力を取得
 	auto input = Input::GetInstance().GetInputStick(true);
-
 
 	//入力から角度を計算する
 	float inputRateX = input.first / kAnalogInputMax;
 	float inputRateY = input.second / kAnalogInputMax;
 
-	if (inputRateX > 0.001f)
-	{
-		m_cameraAngleX -= m_angleMoveScale * std::abs(inputRateX);
-	}
-	else if (inputRateX < -0.001f)
-	{
-		m_cameraAngleX += m_angleMoveScale * std::abs(inputRateX);
-	}
+	// カメラの水平角度を更新
+	m_cameraAngleX -= m_angleMoveScale * inputRateX;
 
-	if (inputRateY > 0.001f)
-	{
-		m_cameraAngleY += m_angleMoveScale * std::abs(inputRateY);
-		if (m_cameraAngleY > 90.0f)
-		{
-			m_cameraAngleY = 89.99f;
-		}
-	}
-	else if (inputRateY < -0.001f)
-	{
-		m_cameraAngleY -= m_angleMoveScale * std::abs(inputRateY);
-		if (m_cameraAngleY < -90.0f)
-		{
-			m_cameraAngleY = -89.99f;
-		}
-	}
+	// カメラの垂直角度を更新
+	m_cameraAngleY += m_angleMoveScale * inputRateY;
+	m_cameraAngleY = min(max(m_cameraAngleY, -89.99f), 89.99f);
 
 	// カメラの位置はカメラの水平角度と垂直角度から算出
 	// 最初に垂直角度を反映した位置を算出
@@ -222,9 +206,10 @@ void Camera::Update()
 		m_cameraPos = fixedPos;
 	}
 #endif
-
+	// ライトの方向を設定
 	SetLightDirectionHandle(m_lightHandle, (m_aimPos - m_cameraPos).ToVECTOR());
 
+	// カメラの位置と注視点を設定
 	SetCameraPositionAndTarget_UpVecY(m_cameraPos.ToVECTOR(), m_aimPos.ToVECTOR());
 }
 
@@ -236,14 +221,21 @@ const Vec3 Camera::GetDirection() const
 	return (m_aimPos - m_cameraPos).Normalize();
 }
 
+/// <summary>
+/// カメラから注視点方向ベクトルに飛ばしたレイの地形に当たった座標を取得
+/// </summary>
 const Vec3 Camera::GetMapHitPosition() const
 {
+	// カメラから注視点方向に飛ばしたレイの長さを設定
 	auto line = (m_aimPos - m_cameraPos).Normalize() * 10000.0f;
+	// レイキャストを実行
 	auto ret = MV1CollCheck_Line(m_stageHandle, -1, m_cameraPos.ToVECTOR(), line.ToVECTOR());
+	// レイが地形に当たった場合
 	if (ret.HitFlag)
 	{
-		//DrawSphere3D(ret.HitPosition, 8, 8, 0xffffff, 0xffffff, true);
+		// 当たった座標を返す
 		return ret.HitPosition;
 	}
+	// 当たらなかった場合はレイの終点を返す
 	return line;
 }

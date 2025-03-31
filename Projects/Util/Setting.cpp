@@ -1,5 +1,4 @@
 ﻿#include "Setting.h"
-#include "DxLib.h"
 #include <cassert>
 #include <fstream>
 #include <string>
@@ -19,16 +18,18 @@ namespace
 
 	// セーブデータファイル名
 	const char* const kSaveDataFilename = "data/save/config.dat";
+
+	//デフォルト値
+	constexpr float kDefaultValue = 0.5f;
 }
 
-Setting::~Setting()
-{
-}
-
+/// <summary>
+/// オプションデータを読み込む
+/// </summary>
 void Setting::Load()
 {
 	// データのクリア
-	ClearData();
+	ResetData();
 
 	std::ifstream ifs;
 	//セーブデータのファイルを開く
@@ -52,25 +53,41 @@ void Setting::Load()
 	}
 }
 
+/// <summary>
+/// オプションデータを保存する
+/// </summary>
 void Setting::Save()
 {
+	// バイナリモードでファイルを開く
 	std::ofstream ofs(kSaveDataFilename, std::ios_base::binary);
+	// データを書き込む
 	ofs.write((char*)&m_data, sizeof(Data));
+
+	// ファイルを閉じる
+	ofs.close();
 }
 
-void Setting::ClearData()
+/// <summary>
+/// オプションデータをリセットする
+/// </summary>
+void Setting::ResetData()
 {
-	m_data.masterVolume = 0.5f;
-	m_data.bgmVolume = 0.5f;
-	m_data.seVolume = 0.5f;
-	m_data.sensitivity = 0.5f;
+	//全部初期設定にする
+	m_data.masterVolume = kDefaultValue;
+	m_data.bgmVolume = kDefaultValue;
+	m_data.seVolume = kDefaultValue;
+	m_data.sensitivity = kDefaultValue;
 	m_data.isFullScreen = true;
 	m_data.isDrawOperation = true;
 }
 
+/// <summary>
+/// 新しいオプションデータを生成する
+/// </summary>
 void Setting::CreateNewData()
 {
-	ClearData();
+	//念のためデータをリセットしておく
+	ResetData();
 
 	// セーブデータ保存用のフォルダがない場合生成する
 	if (!std::filesystem::is_directory("data/save"))
@@ -78,6 +95,8 @@ void Setting::CreateNewData()
 		std::filesystem::create_directory("data/save");
 	}
 
+	// バイナリモードでファイルを開く
 	std::ofstream ofs(kSaveDataFilename, std::ios_base::binary);
+	// データを書き込む
 	ofs.write((char*)&m_data, sizeof(Data));
 }

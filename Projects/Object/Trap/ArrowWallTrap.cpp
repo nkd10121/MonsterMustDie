@@ -5,14 +5,9 @@
 
 namespace
 {
-	//当たり判定の円の半径
-	constexpr float kCollisionRadius = 11.0f;
-
 	//ボーン（フレーム）の名前を指定
 	const char* kTargetFrameName = "Obstacle_16_1";
 
-	//索敵判定の間隔
-	constexpr float kSearchCollisionInterval = 20.0f;
 	//矢の移動速度
 	constexpr float kArrowMoveSpeed = 2.0f;
 
@@ -85,7 +80,7 @@ void ArrowWallTrap::Init(Vec3 pos,Vec3 norm)
 		sphereCol->m_radius = m_status.searchRange;
 
 
-		auto searchPos = norm * static_cast<float>(i * kSearchCollisionInterval);
+		auto searchPos = norm * static_cast<float>(i * m_status.searchRange * 2);
 		sphereCol->SetOffsetPos(searchPos);
 
 		//索敵判定は動かすつもりがないため、先に中心座標を設定して動かないようにする
@@ -217,7 +212,7 @@ std::vector<Vec3> ArrowWallTrap::GetAttackPos()
 	//索敵判定の作成(3つ作成)
 	for (int i = 1; i < 4; i++)
 	{
-		auto pos = rigidbody->GetPos() + m_norm * static_cast<float>(i * kSearchCollisionInterval);
+		auto pos = rigidbody->GetPos() + m_norm * static_cast<float>(i * m_status.searchRange * 2);
 		pos.y -= 8.0f;
 		ret.push_back(pos);
 	}

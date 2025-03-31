@@ -1,10 +1,7 @@
 ﻿#include "SceneDebug.h"
 
 #include "SceneTitle.h"
-#include "SceneMainMenu.h"
 #include "SceneStageSelect.h"
-#include "SceneStrengthen.h"
-#include "SceneRanking.h"
 #include "SceneGame.h"
 #include "SceneResult.h"
 #include "ScenePause.h"
@@ -93,10 +90,7 @@ void SceneDebug::Init()
 	// シーン遷移のマップを初期化
 	m_sceneTransitionMap = {
 		{eDestination::Title, []() { return std::make_shared<SceneTitle>(); }},
-		{eDestination::Select, []() { return std::make_shared<SceneMainMenu>(); }},
 		{eDestination::StageSelect, []() { return std::make_shared<SceneStageSelect>(); }},
-		{eDestination::Strengthen, []() { return std::make_shared<SceneStrengthen>(); }},
-		{eDestination::Ranking, []() { return std::make_shared<SceneRanking>(); }},
 		{eDestination::InGame, [this]() { 
 			m_updateFunc = &SceneDebug::UpdateStageSelect;
 			m_drawFunc = &SceneDebug::DrawStageName;

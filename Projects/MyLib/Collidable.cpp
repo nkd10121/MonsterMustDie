@@ -1,5 +1,4 @@
 ﻿#include <cassert> 
-#include "DxLib.h"
 #include "MyLib.h"
 
 /// <summary>

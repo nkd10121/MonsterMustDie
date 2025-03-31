@@ -72,8 +72,7 @@ void PlayerStateWalk::Update()
 	auto own = std::dynamic_pointer_cast<Player>(m_pOwn.lock());
 
 	//左スティックが入力されていなかったらStateをIdleにする
-	if (Input::GetInstance().GetInputStick(false).first == 0.0f &&
-		Input::GetInstance().GetInputStick(false).second == 0.0f)
+	if (Input::GetInstance().IsStickNeutral(false))
 	{
 		if (m_noInputFrame == 2)
 		{

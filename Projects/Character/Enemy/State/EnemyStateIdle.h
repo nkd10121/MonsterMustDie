@@ -15,7 +15,7 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Init(std::string id);
+	void Init(std::string id) {};
 	/// <summary>
 	/// 更新
 	/// </summary>

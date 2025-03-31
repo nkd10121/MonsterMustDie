@@ -67,11 +67,8 @@
     <ClCompile Include="Character\Player\State\PlayerStateDash.cpp" />
     <ClCompile Include="Character\Player\State\PlayerStateDeath.cpp" />
     <ClCompile Include="Scene\SceneOption.cpp" />
-    <ClCompile Include="Scene\SceneRanking.cpp" />
     <ClCompile Include="Scene\SceneResult.cpp" />
-    <ClCompile Include="Scene\SceneMainMenu.cpp" />
     <ClCompile Include="Scene\SceneStageSelect.cpp" />
-    <ClCompile Include="Scene\SceneStrengthen.cpp" />
     <ClCompile Include="Scene\SceneDebug.cpp" />
     <ClCompile Include="Scene\ScenePause.cpp" />
     <ClCompile Include="Character\Player\State\StateBase.cpp" />
@@ -141,11 +138,8 @@
     <ClInclude Include="Character\Player\State\PlayerStateDash.h" />
     <ClInclude Include="Character\Player\State\PlayerStateDeath.h" />
     <ClInclude Include="Scene\SceneOption.h" />
-    <ClInclude Include="Scene\SceneRanking.h" />
     <ClInclude Include="Scene\SceneResult.h" />
-    <ClInclude Include="Scene\SceneMainMenu.h" />
     <ClInclude Include="Scene\SceneStageSelect.h" />
-    <ClInclude Include="Scene\SceneStrengthen.h" />
     <ClInclude Include="Scene\SceneDebug.h" />
     <ClInclude Include="Scene\ScenePause.h" />
     <ClInclude Include="Character\Player\State\StateBase.h" />

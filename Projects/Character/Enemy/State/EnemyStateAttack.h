@@ -15,14 +15,14 @@ public:
 	/// <summary>
 	/// 初期化
 	/// </summary>
-	void Init(std::string id);
+	void Init(std::string id){};
 	/// <summary>
 	/// 更新
 	/// </summary>
 	virtual void Update() override;
 
 private:
-	int m_waitCount;		//待機フレーム
+	int m_attackCollisionCount;		//待機フレーム
 	Vec3 m_attackVec;		//攻撃判定を出す方向ベクトル
 };
 

@@ -213,11 +213,11 @@ void SceneResult::SelectNextSceneUpdate()
 	{
 		if (!m_isChangeNextScene)
 		{
-			m_isChangeNextScene = true;
 
 			//ゲームシーンに遷移する
 			if (m_destinationScene == eDestination::InGame)
 			{
+				m_isChangeNextScene = true;
 				if (m_isClear)
 				{
 					SceneManager::GetInstance().SetNextScene(std::make_shared<SceneGame>());

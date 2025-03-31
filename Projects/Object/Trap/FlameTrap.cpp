@@ -159,7 +159,7 @@ void FlameTrap::Update()
 
 	if (m_waitCount != 0)
 	{
-		if (m_waitCount > 120)
+		if (m_waitCount > m_status.coolTime)
 		{
 			m_isAttack = false;
 			m_waitCount = 0;

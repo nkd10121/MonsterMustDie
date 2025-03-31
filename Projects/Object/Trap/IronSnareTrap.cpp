@@ -2,12 +2,6 @@
 #include "LoadCSV.h"
 #include "ResourceManager.h"
 
-namespace
-{
-	//当たり判定の円の半径
-	constexpr float kCollisionRadius = 11.0f;
-}
-
 IronSnareTrap::IronSnareTrap() :
 	TrapBase()
 {
@@ -34,7 +28,7 @@ void IronSnareTrap::Init(Vec3 pos, Vec3 norm)
 	//当たり判定の生成
 	auto collider = Collidable::AddCollider(MyLib::ColliderBase::Kind::Sphere, true, MyLib::ColliderBase::CollisionTag::Attack);
 	auto sphereCol = dynamic_cast<MyLib::ColliderSphere*>(collider.get());
-	sphereCol->m_radius = kCollisionRadius + 2.0;
+	sphereCol->m_radius = m_status.atkRange;
 
 	//座標の更新
 	rigidbody->SetPos(pos);

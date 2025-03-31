@@ -20,7 +20,7 @@ public:
 		Dash,		//ダッシュ
 		Jump,		//ジャンプ
 		Attack,		//攻撃
-		Damaged,		//被ダメージ
+		Damaged,	//被ダメージ
 		Death,		//死亡
 		Clear,		//クリア
 	};

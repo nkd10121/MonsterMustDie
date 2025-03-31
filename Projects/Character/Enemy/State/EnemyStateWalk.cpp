@@ -11,6 +11,8 @@ namespace
 {
 	//攻撃を開始するプレイヤーとの距離
 	constexpr float kStartAttackLength = 6.0f;
+	// ルートインデックスを更新する距離
+	constexpr float kRouteUpdateDistance = 3.0f;
 }
 
 /// <summary>
@@ -23,13 +25,6 @@ EnemyStateWalk::EnemyStateWalk(std::shared_ptr<CharacterBase> own) :
 	m_nowState = StateKind::Walk;
 	//歩きアニメーションに変える
 	own->ChangeAnim(LoadCSV::GetInstance().GetAnimIdx(own->GetCharacterName(), "WALK_FORWARD"));
-}
-
-/// <summary>
-/// 初期化
-/// </summary>
-void EnemyStateWalk::Init(std::string id)
-{
 }
 
 /// <summary>
@@ -70,19 +65,17 @@ void EnemyStateWalk::Update()
 		auto ownPos = own->GetRigidbody()->GetPos();
 		Vec2 ownPosXZ = Vec2(ownPos.x, ownPos.z);
 
-		if (abs((targetPosXZ - ownPosXZ).Length()) <= 3.0f)
+		//移動先のウェイポイントとの距離が一定距離以下ならウェイポイントを次の場所に更新する
+		if (abs((targetPosXZ - ownPosXZ).Length()) <= kRouteUpdateDistance)
 		{
 			own->AddRouteIdx();
 			targetPos = own->GetNextPos();
 		}
 
+		//方向ベクトルを計算
 		moveVec = targetPos - ownPos;
 		//移動ベクトルを計算する
 		moveVec = moveVec.Normalize() * own->GetMoveSpeed();
-
-		////索敵範囲内にプレイヤーがいなかったら待機状態に遷移する
-		//ChangeState(StateBase::StateKind::Idle);
-		//return;
 	}
 
 	//体を移動方向に向ける
@@ -93,10 +86,11 @@ void EnemyStateWalk::Update()
 	own->SetModelRotation(rotation);
 	own->SetHeadCollisionFrontVec(targetPos);
 
-	auto m = own->GetMoveDebuff();
+	// 移動デバフを取得
+	auto moveDebuff = own->GetMoveDebuff();
 
 	//直前のY方向の移動速度と入力された移動速度を合わせて移動速度を決定する
 	Vec3 prevVelocity = own->GetRigidbody()->GetVelocity();
-	Vec3 newVelocity = Vec3(moveVec.x * m, prevVelocity.y, moveVec.z * m);
+	Vec3 newVelocity = Vec3(moveVec.x * moveDebuff, prevVelocity.y, moveVec.z * moveDebuff);
 	own->GetRigidbody()->SetVelocity(newVelocity);
 }

@@ -10,6 +10,10 @@ namespace
 	constexpr float kStartAttackLength = 6.0f;
 }
 
+/// <summary>
+/// コンストラクタ
+/// </summary>
+/// <param name="own"></param>
 EnemyStateDamaged::EnemyStateDamaged(std::shared_ptr<CharacterBase> own) :
 	StateBase(own),
 	m_damagedCount(0)
@@ -20,10 +24,9 @@ EnemyStateDamaged::EnemyStateDamaged(std::shared_ptr<CharacterBase> own) :
 	own->ChangeAnim(LoadCSV::GetInstance().GetAnimIdx(own->GetCharacterName(), "DANAGED"));
 }
 
-void EnemyStateDamaged::Init(std::string id)
-{
-}
-
+/// <summary>
+/// 更新
+/// </summary>
 void EnemyStateDamaged::Update()
 {
 	//持ち主が敵かどうかをチェックする
