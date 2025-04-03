@@ -1,6 +1,7 @@
 ﻿#include "DxLib.h"
 #include "EffekseerForDXLib.h"
 #include "Util/Game.h"
+#include "resource.h"
 
 #include "Input.h"
 #include "SceneManager.h"
@@ -20,6 +21,8 @@
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	//ウィンドウアイコンを設定
+	SetWindowIconID(IDI_MYICON);
 	//ウィンドウサイズの変更
 	SetGraphMode(Game::kWindowWidth, Game::kWindowHeight, 32);
 	// ウインドウ名設定

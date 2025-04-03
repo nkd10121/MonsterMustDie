@@ -463,6 +463,7 @@
     <ClInclude Include="Object\Trap\CutterTrap.h">
       <Filter>ソース ファイル\Object\Trap</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\VertexShader.hlsl">
@@ -471,5 +472,10 @@
     <FxCompile Include="Shader\PixelShader.hlsl">
       <Filter>ソース ファイル\Shader</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

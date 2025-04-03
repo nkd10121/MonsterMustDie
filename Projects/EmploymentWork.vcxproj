@@ -95,6 +95,7 @@
     <ClInclude Include="Object\Trap\CutterTrap.h" />
     <ClInclude Include="Object\Trap\IronImpactTrap.h" />
     <ClInclude Include="Object\Trap\IronSnareTrap.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Ui\MiniMap.h" />
     <ClInclude Include="Object\Trap\FlameTrap.h" />
     <ClInclude Include="Util\Setting.h" />
@@ -187,6 +188,9 @@
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectDir)data/shader/%(Filename).vso</ObjectFileOutput>
       <ObjectFileOutput Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(ProjectDir)data/shader/%(Filename).vso</ObjectFileOutput>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
