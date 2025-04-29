@@ -10,6 +10,9 @@ MonsterMustDie!
 【プレイ動画】
 https://youtu.be/er6HSM8xqhI
 
+【紹介動画】
+https://youtu.be/lg4d4VWLt1M
+
 【プレイ人数】
 1人
 
